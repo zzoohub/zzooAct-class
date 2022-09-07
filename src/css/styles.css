@@ -1,6 +1,20 @@
-@import url("./components/todos.css");
+@import url("./reset.css");
+@import url("./components/header.css");
+@import url("./components/main.css");
+@import url("./components/footer.css");
 
 body {
-  background-color: blue;
+  background-color: #333;
   color: #fff;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.wrapper header,
+.wrapper main,
+.wrapper footer {
+  max-width: 1024px;
+  width: 100%;
 }

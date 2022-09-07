@@ -10,6 +10,7 @@ export default class Component {
   setUp() {}
   render() {
     this.target.innerHTML = this.templete();
+    this.mount();
   }
   templete() {
     return ``;
@@ -18,6 +19,7 @@ export default class Component {
     this.state = { ...this.state, ...newState };
     this.render();
   }
+  mount() {}
   setEvent() {}
   makeEvent(eventType, selector, callback) {
     const children = [...this.target.querySelectorAll(selector)];

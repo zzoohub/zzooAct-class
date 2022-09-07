@@ -1,0 +1,14 @@
+header {
+  height: 100px;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+header nav div {
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: #888;
+  padding: 10px 20px;
+}
