@@ -1,6 +1,15 @@
 import Component from "../core/Component.js";
 
 export default class Todo extends Component {
+  get filteredItems() {
+    const { status, items } = this.state;
+    return items.filter(
+      (item) =>
+        (status === "active" && item.isActive) ||
+        (status === "inActive" && !item.isActive) ||
+        status === "all"
+    );
+  }
   setUp() {
     this.state = {
       status: "all",
@@ -13,12 +22,7 @@ export default class Todo extends Component {
   }
   templete() {
     return `
-      <style>
-        #list li button:first-child{
-          margin-left: 30px;
-        }
-      </style>
-
+      <div id="component_todoList">
       <h2>To Do List</h2>
       <input id="appender" placeholder="입력란" />
       <ul id="list">
@@ -27,9 +31,9 @@ export default class Todo extends Component {
             (item, i) =>
               `<li>${item.todo}
               <button id="toggle"  data-seq=${item.seq} style="color:${
-                item.isActive ? "red" : "blue"
+                item.isActive ? "blue" : "red"
               }">
-              ${item.isActive ? "비활성" : "활성"}</button>
+              ${item.isActive ? "활성" : "비활성"}</button>
               <button id="deleteTodo" data-seq=${item.seq}>삭제</button>
             </li>`
           )
@@ -39,6 +43,7 @@ export default class Todo extends Component {
       <button id="changeStatus" data-status="all">전체보기</button>
       <button id="changeStatus" data-status="active">활성상태보기</button>
       <button id="changeStatus" data-status="inActive">비활성상태만</button>
+      </div>
     `;
   }
   setEvent() {
@@ -69,6 +74,7 @@ export default class Todo extends Component {
       const {
         dataset: { status },
       } = target;
+
       this.setState({ status });
     });
   }
@@ -81,14 +87,5 @@ export default class Todo extends Component {
     this.setState({
       items: [...items, { todo, isActive, seq }],
     });
-  }
-  get filteredItems() {
-    const { status, items } = this.state;
-    return items.filter(
-      (item) =>
-        (status === "active" && items.isActive) ||
-        (status === "inActive" && !item.isActive) ||
-        status === "all"
-    );
   }
 }

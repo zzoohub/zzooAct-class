@@ -4,8 +4,8 @@ export default class Component {
   constructor(target) {
     this.target = target;
     this.setUp();
-    this.setEvent();
     this.render();
+    this.setEvent();
   }
   setUp() {}
   render() {

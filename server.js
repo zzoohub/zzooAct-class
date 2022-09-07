@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/public/index.html");
 });
-app.use("/static", express.static("src/client"));
+app.use("/", express.static("public"));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

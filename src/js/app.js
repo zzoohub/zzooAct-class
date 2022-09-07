@@ -1,4 +1,5 @@
 import Todo from "./components/todos.js";
+import "../css/styles.css";
 
 class App {
   constructor() {
