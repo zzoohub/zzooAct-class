@@ -12,15 +12,23 @@ export default class Header {
     return `
         <nav>
             <div style="color:${
-              atom.page === "home" ? "red" : "gray"
+              atom.page === "home" ? "red" : "#d9d9d9"
             }" id="link" data-nav="home">HOME</div>
             <div style="color:${
-              atom.page === "create" ? "red" : "gray"
+              atom.page === "create" ? "red" : "#d9d9d9"
             }" id="link" data-nav="create">제작</div>
             <div style="color:${
-              atom.page === "store" ? "red" : "gray"
-            }" id="link" data-nav="store">보관함</div>   
+              atom.page === "store" ? "red" : "#d9d9d9"
+            }" id="link" data-nav="store">보관함</div>
         </nav>
+        <div id="user">
+            <strong>
+            ${atom.user}
+            </strong>
+            <span>
+              님
+            </span>
+        </div>
     `;
   }
   render() {

@@ -1,3 +1,5 @@
+import "../../css/components/login.css";
+
 export default class Login {
   constructor(target, props) {
     this.target = target;
@@ -12,7 +14,7 @@ export default class Login {
     return `
         <div id="login">
             <form id="loginForm">
-                <div id="close_login">닫기</div>
+                <h2 class="loginForm_title">닉네임을 만드세요</h2>
                 <input minlength="2" placeholder="닉네임을 지어주세요" />
                 <button>확인</button>
             </form>

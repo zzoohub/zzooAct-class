@@ -4,8 +4,6 @@
 @import url("./components/footer.css");
 
 body {
-  background-color: #333;
-  color: #fff;
 }
 .wrapper {
   display: flex;

@@ -1,5 +1,11 @@
+#header_wrap {
+  background-color: #111;
+}
 header {
-  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
 }
 header nav {
   display: flex;
@@ -9,6 +15,15 @@ header nav {
 header nav div {
   margin-right: 20px;
   cursor: pointer;
-  background-color: #888;
   padding: 10px 20px;
+}
+
+#user strong {
+  font-weight: bold;
+  color: #fff;
+}
+#user span {
+  font-weight: 300;
+  font-size: 14px;
+  color: #fff;
 }
