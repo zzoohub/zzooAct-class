@@ -15,11 +15,11 @@ export default class Layout {
   setUp() {
     this.setAtom({
       user: localStorage.getItem("loginUser"),
-      page: "home",
+      page: "create",
     });
   }
   templete() {
-    return `        
+    return `
           <div id="header_wrap" class="wrapper">
             <header></header>
           </div>
@@ -28,7 +28,7 @@ export default class Layout {
           </div>
           <div id="footer_wrap" class="wrapper">
             <footer></footer>
-          </div>                              
+          </div>
     `;
   }
   checkLogin() {
