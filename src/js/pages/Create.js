@@ -48,27 +48,46 @@ export default class Create {
   setEvent() {
     const form = this.main.querySelector("#quizForm");
     form.addEventListener("submit", (event) => {
+      console.log("submited..");
       event.preventDefault();
       const { target: form } = event;
-      const newQuiz = {
-        user: localStorage.getItem("user"),
-        inputs: [],
+      const quizItem = {
+        quizId: (Math.random() * 100000000).toFixed(),
+        creator: localStorage.getItem("loginUser"),
+        quizType: this.state.type,
+        questions: [],
+        answers: [],
       };
       for (const child of form) {
-        if (child.nodeName === "SELECT") {
-          newQuiz["type"] = child.value;
-        } else if (child.nodeName === "BUTTON") {
+        if (child.nodeName === "INPUT") {
+          const {
+            value,
+            dataset: { question, answer },
+          } = child;
+          if (question) {
+            quizItem.questions.push({ index: question, text: value });
+          } else if (answer) {
+            quizItem.answers.push({ index: question, text: value });
+          }
         } else {
-          newQuiz.inputs.push(child);
+          continue;
         }
       }
+
       try {
+        const { setAtom } = this.props;
         if (localStorage.getItem("myQuiz")) {
           const myQuiz = [
             ...JSON.parse(localStorage.getItem("myQuiz")),
-            newQuiz,
+            quizItem,
           ];
           localStorage.setItem("myQuiz", JSON.stringify(myQuiz));
+          setAtom({ page: "home" });
+        } else {
+          const myQuiz = [];
+          myQuiz.push(quizItem);
+          localStorage.setItem("myQuiz", JSON.stringify(myQuiz));
+          setAtom({ page: "home" });
         }
       } catch (error) {
         console.log(error);

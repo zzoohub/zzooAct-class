@@ -9,7 +9,7 @@ export default class CreateQuiz extends Component {
     if (type === "base") {
       return `
       <div class="createBaseQuiz">
-      <input data-quiz="1" placeholder="퀴즈 내용"/>
+      <input data-question="1" placeholder="퀴즈 내용"/>
       <input data-answer="1" placeholder="정답"/>
       </div>
 
@@ -18,9 +18,9 @@ export default class CreateQuiz extends Component {
       return `
       <div class="createLineQuiz">
         <div class="createLineQuiz_question">
-          <input data-quiz="1" placeholder="1번 퀴즈" />
-          <input data-quiz="2" placeholder="2번 퀴즈" />
-          <input data-quiz="3" placeholder="3번 퀴즈" />
+          <input data-question="1" placeholder="1번 퀴즈" />
+          <input data-question="2" placeholder="2번 퀴즈" />
+          <input data-question="3" placeholder="3번 퀴즈" />
         </div>
         <div class="createLineQuiz_answer">
           <input data-answer="1" placeholder="1번 정답" />
@@ -33,7 +33,7 @@ export default class CreateQuiz extends Component {
       return `
         <div class="createDragQuiz">
           <div class="createDragQuiz_question">
-            <input data-quiz="1" placeholder="퀴즈" />
+            <input data-question="1" placeholder="퀴즈" />
           </div>
           <div class="createLineQuiz_answer">
             <input data-answer="1" placeholder="정답" />

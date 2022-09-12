@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Home from "../pages/Home";
 import Create from "../pages/Create";
 import Store from "../pages/Store";
+import SolveQuiz from "../pages/SolveQuiz";
 
 export default class Layout {
   constructor(root) {
@@ -15,7 +16,7 @@ export default class Layout {
   setUp() {
     this.setAtom({
       user: localStorage.getItem("loginUser"),
-      page: "create",
+      page: "home",
     });
   }
   templete() {
@@ -47,7 +48,7 @@ export default class Layout {
     this.mount();
   }
   mount() {
-    const { page } = this.atom;
+    const { page, playing } = this.atom;
 
     const header = this.root.querySelector("header");
     new Header(header, {
@@ -68,6 +69,12 @@ export default class Layout {
       });
     } else if (page === "store") {
       new Store(main, {
+        atom: this.atom,
+        setAtom: this.setAtom.bind(this),
+      });
+    } else if (page === "quiz" && playing !== undefined) {
+      new SolveQuiz(main, {
+        quizId: playing,
         atom: this.atom,
         setAtom: this.setAtom.bind(this),
       });
