@@ -48,13 +48,13 @@ export default class Create {
   setEvent() {
     const form = this.main.querySelector("#quizForm");
     form.addEventListener("submit", (event) => {
-      console.log("submited..");
       event.preventDefault();
       const { target: form } = event;
       const quizItem = {
         quizId: (Math.random() * 100000000).toFixed(),
         creator: localStorage.getItem("loginUser"),
         quizType: this.state.type,
+        isSolved: false,
         questions: [],
         answers: [],
       };
@@ -64,6 +64,7 @@ export default class Create {
             value,
             dataset: { question, answer },
           } = child;
+          if (!value) return;
           if (question) {
             quizItem.questions.push({ index: question, text: value });
           } else if (answer) {

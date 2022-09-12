@@ -9,8 +9,8 @@ export default class CreateQuiz extends Component {
     if (type === "base") {
       return `
       <div class="createBaseQuiz">
-      <input data-question="1" placeholder="퀴즈 내용"/>
-      <input data-answer="1" placeholder="정답"/>
+      <input required data-question="1" placeholder="퀴즈 내용"/>
+      <input required data-answer="1" placeholder="정답"/>
       </div>
 
     `;
@@ -18,14 +18,14 @@ export default class CreateQuiz extends Component {
       return `
       <div class="createLineQuiz">
         <div class="createLineQuiz_question">
-          <input data-question="1" placeholder="1번 퀴즈" />
-          <input data-question="2" placeholder="2번 퀴즈" />
-          <input data-question="3" placeholder="3번 퀴즈" />
+          <input required data-question="1" placeholder="1번 퀴즈" />
+          <input required data-question="2" placeholder="2번 퀴즈" />
+          <input required data-question="3" placeholder="3번 퀴즈" />
         </div>
         <div class="createLineQuiz_answer">
-          <input data-answer="1" placeholder="1번 정답" />
-          <input data-answer="2" placeholder="2번 정답" />
-          <input data-answer="3" placeholder="3번 정답" />
+          <input required data-answer="1" placeholder="1번 정답" />
+          <input required data-answer="2" placeholder="2번 정답" />
+          <input required data-answer="3" placeholder="3번 정답" />
         </div>
       </div>
       `;
@@ -36,9 +36,9 @@ export default class CreateQuiz extends Component {
             <input data-question="1" placeholder="퀴즈" />
           </div>
           <div class="createLineQuiz_answer">
-            <input data-answer="1" placeholder="정답" />
-            <input data-answer="2" placeholder="오답" />
-            <input data-answer="3" placeholder="오답" />
+            <input required data-answer="1" placeholder="정답" />
+            <input required data-answer="2" placeholder="오답" />
+            <input required data-answer="3" placeholder="오답" />
           </div>
         </div>
       `;
