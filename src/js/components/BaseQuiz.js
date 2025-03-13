@@ -1,10 +1,10 @@
-import Component from "../core/Component";
+import Component from "../core/Component"
 
 export default class BaseQuiz extends Component {
   templete() {
     const {
       quiz: { questions, answers },
-    } = this.props;
+    } = this.props
 
     return `
         <form id="baseQuiz">
@@ -12,14 +12,14 @@ export default class BaseQuiz extends Component {
           <input data-answer placeholder="정답을 맞춰주세요" />
           <button>제출</button>
         </form>
-    `;
+    `
   }
   setEvent() {
-    const { submit } = this.props;
-    this.makeEvent("submit", "#baseQuiz", (event) => {
-      event.preventDefault();
-      const answer = this.target.querySelector("[data-answer]");
-      submit(answer.value);
-    });
+    const { submit } = this.props
+    this.makeEvent("submit", "#baseQuiz", event => {
+      event.preventDefault()
+      const answer = this.target.querySelector("[data-answer]")
+      submit(answer.value)
+    })
   }
 }

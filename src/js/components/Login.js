@@ -1,14 +1,14 @@
-import "../../css/components/login.css";
+import "../../css/components/login.css"
 
 export default class Login {
   constructor(target, props) {
-    this.target = target;
-    this.props = props;
-    this.setUp();
+    this.target = target
+    this.props = props
+    this.setUp()
   }
   setUp() {
-    this.target.innerHTML = this.template();
-    this.setEvent();
+    this.target.innerHTML = this.template()
+    this.setEvent()
   }
   template() {
     return `
@@ -19,18 +19,18 @@ export default class Login {
                 <button>확인</button>
             </form>
         </div>
-    `;
+    `
   }
   setEvent() {
-    const form = document.querySelector("#loginForm");
-    form.addEventListener("submit", this.onValid.bind(this));
+    const form = document.querySelector("#loginForm")
+    form.addEventListener("submit", this.onValid.bind(this))
   }
   onValid(event) {
-    event.preventDefault();
-    const value = event.target.children[1].value;
-    localStorage.setItem("loginUser", value);
+    event.preventDefault()
+    const value = event.target.children[1].value
+    localStorage.setItem("loginUser", value)
 
-    const { setAtom } = this.props;
-    setAtom({ user: value });
+    const { setAtom } = this.props
+    setAtom({ user: value })
   }
 }

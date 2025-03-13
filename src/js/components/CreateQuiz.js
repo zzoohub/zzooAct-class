@@ -1,11 +1,11 @@
-import Component from "../core/Component";
+import Component from "../core/Component"
 
 export default class CreateQuiz extends Component {
   setUp() {}
   templete() {
     const {
       quizType: { type },
-    } = this.props;
+    } = this.props
     if (type === "base") {
       return `
       <div class="createBaseQuiz">
@@ -13,7 +13,7 @@ export default class CreateQuiz extends Component {
       <input required data-answer="1" placeholder="정답"/>
       </div>
 
-    `;
+    `
     } else if (type === "line") {
       return `
       <div class="createLineQuiz">
@@ -28,7 +28,7 @@ export default class CreateQuiz extends Component {
           <input required data-answer="3" placeholder="3번 정답" />
         </div>
       </div>
-      `;
+      `
     } else if (type === "drag") {
       return `
         <div class="createDragQuiz">
@@ -41,7 +41,7 @@ export default class CreateQuiz extends Component {
             <input required data-answer="3" placeholder="오답" />
           </div>
         </div>
-      `;
+      `
     }
   }
 }

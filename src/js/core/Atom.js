@@ -1,12 +1,12 @@
 class Atom {
-  atom;
+  atom
   constructor() {
-    this.atom = {};
-    render();
+    this.atom = {}
+    render()
   }
   setAtom(newAtom) {
-    this.atom = { ...this.atom, ...newAtom };
-    this.render();
+    this.atom = { ...this.atom, ...newAtom }
+    this.render()
   }
   render() {}
   templete() {}

@@ -1,36 +1,35 @@
 export default class Component {
-  target;
-  state;
+  target
+  state
   constructor(target, props) {
-    this.target = target;
-    this.props = props;
-    this.setUp();
-    this.render();
-    this.setEvent();
+    this.target = target
+    this.props = props
+    this.setUp()
+    this.render()
+    this.setEvent()
   }
   setUp() {}
   render() {
-    this.target.innerHTML = this.templete();
-    this.mount();
+    this.target.innerHTML = this.templete()
+    this.mount()
   }
   templete() {
-    return ``;
+    return ``
   }
   setState(newState) {
-    this.state = { ...this.state, ...newState };
-    this.render();
+    this.state = { ...this.state, ...newState }
+    this.render()
   }
   mount() {}
   setEvent() {}
   makeEvent(eventType, selector, callback) {
-    const children = [...this.target.querySelectorAll(selector)];
+    const children = [...this.target.querySelectorAll(selector)]
 
-    const isExist = (target) =>
-      children.includes(target) || target.closest(selector);
+    const isExist = target => children.includes(target) || target.closest(selector)
 
-    this.target.addEventListener(eventType, (event) => {
-      if (!isExist(event.target)) return false;
-      callback(event);
-    });
+    this.target.addEventListener(eventType, event => {
+      if (!isExist(event.target)) return false
+      callback(event)
+    })
   }
 }

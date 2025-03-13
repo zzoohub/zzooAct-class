@@ -1,5 +1,5 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   entry: "./src/js/app.js",
@@ -21,6 +21,6 @@ module.exports = {
       directory: path.join(__dirname, "src"),
     },
     compress: true,
-    port: 4000,
+    port: 3000,
   },
-};
+}
